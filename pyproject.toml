@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 # Deliberately empty: the sudoku package is pure Python. Dependencies get added
 # by the phase that first needs them (torch in phase 4, etc.).
-dependencies = ["numpy"]
+dependencies = ["numpy", "torch"]
 
 [project.optional-dependencies]
 dev = ["pytest", "black"]
