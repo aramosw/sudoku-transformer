@@ -20,11 +20,14 @@ class InvalidTrace(ValueError):
 
 @dataclass(frozen=True, slots=True)
 class Place:
-    """A digit going into a cell."""
+    """A digit going into a cell.
+
+    The reason is None for events decoded from tokens, which cannot carry it.
+    """
 
     cell: int
     digit: int
-    reason: Reason
+    reason: Reason | None = None
 
 
 @dataclass(frozen=True, slots=True)

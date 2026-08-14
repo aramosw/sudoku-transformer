@@ -23,9 +23,14 @@ def read_kaggle_rows(limit: int) -> list[dict[str, str]]:
 
 
 @pytest.fixture(scope="session")
-def kaggle_rows() -> list[dict[str, str]]:
+def kaggle_csv() -> Path:
     if not KAGGLE_CSV.exists():
         pytest.skip(f"{KAGGLE_CSV.name} not present")
+    return KAGGLE_CSV
+
+
+@pytest.fixture(scope="session")
+def kaggle_rows(kaggle_csv) -> list[dict[str, str]]:
     return read_kaggle_rows(200)
 
 
