@@ -1,0 +1,25 @@
+[project]
+name = "sudoku-transformer"
+version = "0.1.0"
+description = "Replication of Kniazev & Fijalkow (arXiv:2605.18847): a transformer trained on randomised Norvig-style sudoku solve traces, with linear probes."
+readme = "README.md"
+requires-python = ">=3.12"
+# Deliberately empty: the sudoku package is pure Python. Dependencies get added
+# by the phase that first needs them (torch in phase 4, etc.).
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "black"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+target-version = ["py312"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
